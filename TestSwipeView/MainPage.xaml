@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:TestSwipeView"
+             x:Class="TestSwipeView.MainPage"
+             x:DataType="pages:MainPage">
+
+    <VerticalStackLayout Spacing="10">
+
+        <CollectionView ItemsSource="{Binding AvailableUsers}"
+                        BackgroundColor="Green">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                <SwipeItemView x:Name="MainSwipe" BackgroundColor="Red">
+                                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="60" Padding="5">
+                                        <Image HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="25"
+                                               MaximumWidthRequest="25" Source="check.png"/>
+                                    </Grid>
+                                </SwipeItemView>
+                                <SwipeItemView x:Name="SecondarySwipe" BackgroundColor="Orange">
+                                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="60" Padding="5">
+                                        <Image HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="25"
+                                               MaximumWidthRequest="25" Source="check.pn"/>
+                                    </Grid>
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Grid RowDefinitions="*" ColumnDefinitions="*" x:DataType="pages:UserDTO">
+                            <Label x:Name="mainText" Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="Center"
+                                   FontSize="16"/>
+                        </Grid>
+
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView ItemsSource="{Binding AvailableUsers}"
+                        BackgroundColor="Blue">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                <SwipeItemView x:Name="MainSwipe" BackgroundColor="Red">
+                                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="60" Padding="5">
+                                        <Image HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="25"
+                                               MaximumWidthRequest="25" Source="check.png"/>
+                                    </Grid>
+                                </SwipeItemView>
+                                <SwipeItemView x:Name="SecondarySwipe" BackgroundColor="Orange">
+                                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="60" Padding="5">
+                                        <Image HorizontalOptions="Center" VerticalOptions="Center" MaximumHeightRequest="25"
+                                               MaximumWidthRequest="25" Source="check.pn"/>
+                                    </Grid>
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Grid RowDefinitions="*" ColumnDefinitions="*" x:DataType="pages:UserDTO">
+                            <Label x:Name="mainText" Text="Fixed text" HorizontalOptions="Start" VerticalOptions="Center"
+                               FontSize="16"/>
+                        </Grid>
+
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
